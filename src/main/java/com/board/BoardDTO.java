@@ -51,5 +51,10 @@ public class BoardDTO { //BoardDTO,BoardVO
 		this.pwd = pwd;
 	}
 
-
+	@Override
+	public String toString() {
+		return "BoardDTO [num=" + num + ", id=" + id + ", title=" + title
+				+ ", content=" + content + ", sysdate=" + sysdate + ", readcnt="
+				+ readcnt + ", pwd=" + pwd + "]";
+	}
 }
