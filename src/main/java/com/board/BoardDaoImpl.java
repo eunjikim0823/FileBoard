@@ -15,10 +15,7 @@ public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDAO {
 		//select ->레코드 한개이상->queryForList() ->selectList("실행시킬 sql의 id")
 		return getSqlSession().selectList("list");
 	}
-	//카테고리 인기순
-	public List getPopList() throws DataAccessException {
-		return getSqlSession().selectList("getPopList");
-	}
+
 
 	public int getNewNum() throws DataAccessException {
 		// TODO Auto-generated method stub
@@ -41,22 +38,20 @@ public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDAO {
 		getSqlSession().update("updateReadcnt",num);
 	}
 
-	public BoardCommand retrieve(String num) throws DataAccessException {
+	public BoardDTO retrieve(String num) throws DataAccessException {
 		// TODO Auto-generated method stub
 		//형식) sqlSession객체명.selectOne("실행시킬 구문의id",매개변수)
 		//Object ->BoardCommand
-		return (BoardCommand)getSqlSession().selectOne("retrieve",num);
+		return (BoardDTO)getSqlSession().selectOne("retrieve",num);
 	}
 
-	public BoardCommand watch(String num) throws DataAccessException {
+	public BoardDTO watch(String num) throws DataAccessException {
 		// TODO Auto-generated method stub
-		return (BoardCommand)getSqlSession().selectOne("watch",num);
+		return (BoardDTO)getSqlSession().selectOne("watch",num);
 	}
-
-
 
 	//수정하기
-	public void update(BoardCommand data) throws DataAccessException {
+	public void update(BoardDTO data) throws DataAccessException {
 		// TODO Auto-generated method stub
 		getSqlSession().update("update",data);//#{title},#{content}...
 	}
@@ -67,11 +62,6 @@ public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDAO {
 		getSqlSession().delete("delete",num);
 	}
 
-	//검색하기
-	public List search(BoardCommand data) throws DataAccessException {
-		//selectOne() ->레코드 한개 또는 필드 한개의 자료형을 얻어올때
-		return getSqlSession().selectList("search",data);
-	}
 
 	//매개변수없는 전체리스트
 	public List getBoardList() throws DataAccessException {
@@ -79,16 +69,17 @@ public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDAO {
 	}
 
 	//페이지네이션
-	public List getBoardList2(Pagination pagination) throws DataAccessException {
-		return getSqlSession().selectList("getBoardList2", pagination);
-	}
-
+	/*
+	 * public List getBoardList2(Pagination pagination) throws DataAccessException {
+	 * return getSqlSession().selectList("getBoardList2", pagination); }
+	 */
 
 	//토탈
-	public int getBoardTotalCnt() throws DataAccessException {
-
-		return (Integer)getSqlSession().selectOne("getBoardTotalCnt");
-	}
+	/*
+	 * public int getBoardTotalCnt() throws DataAccessException {
+	 *
+	 * return (Integer)getSqlSession().selectOne("getBoardTotalCnt"); }
+	 */
 
 
 }
