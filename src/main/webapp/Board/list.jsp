@@ -2,18 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
+	 <!-- HEADER -->
+	 <%@include file ="/Common/header.jsp" %>
 
 	<!--=== Content Part ===-->
     <div class="container content-sm">
 	    <div class="col-md-9 col-md-offset-1">
-		    <div class="headline"><h2>멤버구하기</h2></div>
+		    <div class="headline"><h2>글쓰기</h2></div>
 	    </div>
 
 	    <div class="row">
@@ -36,7 +32,7 @@
 
 				<c:if test="${!empty sessionScope.loginUser}">
 			    	<div class="form-group col-md-1 col-md-offset-1">
-			    		<input type="button" class="form-control" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/findMember/write.do' ">
+			    		<input type="button" class="form-control" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/Board/write.do' ">
 					</div>
 				</c:if>
 	    	</form>
@@ -66,7 +62,7 @@
 					<c:forEach var="list" items="${list}">
 						<tr>
 							<td width="10%">${list.find_number}</td>
-							<td width="53%" align="left"><a href="${pageContext.request.contextPath}/findMember/details.do?find_number=${list.find_number}">${list.find_title}</a></td>
+							<td width="53%" align="left"><a href="${pageContext.request.contextPath}/Board/details.do?find_number=${list.find_number}">${list.find_title}</a></td>
 							<td width="10%">${list.member_id}</td>
 							<td width="17%">${list.find_regdate}</td>
 							<td width="10%">${list.find_hit}</td>
@@ -83,4 +79,10 @@
 
 
 </body>
-</html>
+
+
+
+	<!-- FOOTER -->
+	<%@include file ="/Common/footer.jsp" %>
+
+
