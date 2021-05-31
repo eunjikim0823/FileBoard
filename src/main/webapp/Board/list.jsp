@@ -61,11 +61,11 @@
 
 					<c:forEach var="list" items="${list}">
 						<tr>
-							<td width="10%">${list.find_number}</td>
+							<td width="10%">${list.find_num}</td>
 							<td width="53%" align="left"><a href="${pageContext.request.contextPath}/Board/details.do?find_number=${list.find_number}">${list.find_title}</a></td>
-							<td width="10%">${list.member_id}</td>
-							<td width="17%">${list.find_regdate}</td>
-							<td width="10%">${list.find_hit}</td>
+							<td width="10%">${list.id}</td>
+							<td width="17%">${list.sysdate}</td>
+							<td width="10%">${list.readcnt}</td>
 						</tr>
 					</c:forEach>
 						<tr><!-- 링크문자열  -->
