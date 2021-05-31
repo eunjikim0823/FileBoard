@@ -27,14 +27,14 @@ public class BoardController{
 	public BoardController(BoardDAO boardDAO) {
 		this.boardDAO = boardDAO;
 	}
+/*
 
-	// By Jay_공지사항 호출관련 메서드_20210415
-	@RequestMapping(value="notice/list.do", method = RequestMethod.GET)
+	@RequestMapping(value="Board/board.do", method = RequestMethod.GET)
 	public String noticeList(@RequestParam(value="pageNum",defaultValue="1") int currentPage,
 		    @RequestParam(value="keyField",defaultValue="") String keyField,
 		    @RequestParam(value="keyWord",defaultValue="") String keyWord, Model model) {
 		if(log.isDebugEnabled()) {
-			log.info("NoticeController의 noticeList()호출됨");
+			log.info("BaordController의 boardList()호출됨");
 			log.debug("currentPage:"+currentPage);
 			log.debug("keyField:"+keyField);
 			log.debug("keyWord:"+keyWord);
@@ -63,7 +63,7 @@ public class BoardController{
 		model.addAttribute("keyWord", keyWord);
 		model.addAttribute("pagingHtml",page.getPagingHtml());
 		return "/notice/list";
-	}
+	}*/
 
 	// By Jay_공지사항 작성하기 폼으로 이동_20210417
 	@RequestMapping(value="notice/write.do", method = RequestMethod.GET)
@@ -81,7 +81,7 @@ public class BoardController{
 		noticeDAO.noticeWrite(noticeDTO);
 		return "success";
 	}
-
+/*
 	// By Jay_공지사항 상세페이지로 이동 관련 메서드_20210415
 	@RequestMapping(value="notice/details.do", method = RequestMethod.GET)
 	public String noticeDetails(@RequestParam int notice_number, Model model) {
@@ -116,7 +116,7 @@ public class BoardController{
 		log.info("NoticeController의 noticeDelete()호출됨");
 		noticeDAO.noticeDelete(notice_number);
 		return "redirect:/notice/list.do";
-	}
+	}*/
 }
 
 
