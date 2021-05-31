@@ -25,10 +25,10 @@ public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDAO {
 		return (Integer)getSqlSession().selectOne("getNewNum");//실행할 sql구문
 	}
 
-	public void write(BoardDTO data) throws DataAccessException {
+	public void write(BoardDTO boardDTO) throws DataAccessException {
 		// TODO Auto-generated method stub
 		//형식)sqlSession객체명.insert("실행시킬 sql구문의 id",전달할 매개변수명)
-		getSqlSession().insert("write",data);//getter Method를 호출=>각각 저장
+		getSqlSession().insert("write",boardDTO);//getter Method를 호출=>각각 저장
 
 	}
 

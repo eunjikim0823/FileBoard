@@ -17,7 +17,7 @@ public interface BoardDAO{
 	public int getNewNum() throws DataAccessException;
 
 	//2-2.글쓰기
-	public void write(BoardDTO data) throws DataAccessException;
+	public void write(BoardDTO boardDTO) throws DataAccessException;
 		// TODO Auto-generated method stub
 
 	//3-1.글상세보기-조회수 증가시키기-> update
