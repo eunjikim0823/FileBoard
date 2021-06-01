@@ -84,7 +84,7 @@
     		data :  $("#registerform").serialize(),
     		success:function(data){
     			if(data == "success"){
-    				alert("공지사항이 등록되었습니다.^^");
+    				alert("게시물이 등록되었습니다.");
     				location.href = "${pageContext.request.contextPath}/Board/list.do"
     			}
     			return false;
