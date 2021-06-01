@@ -1,12 +1,19 @@
 package com.board;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -21,10 +28,10 @@ public class BoardController{
 	public BoardController(BoardDAO boardDAO) {
 		this.boardDAO = boardDAO;
 	}
-/*
 
 	@RequestMapping(value="Board/board.do", method = RequestMethod.GET)
-	public String noticeList(@RequestParam(value="pageNum",defaultValue="1") int currentPage,
+	public String noticeList(
+			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
 		    @RequestParam(value="keyField",defaultValue="") String keyField,
 		    @RequestParam(value="keyWord",defaultValue="") String keyWord, Model model) {
 		if(log.isDebugEnabled()) {
@@ -38,16 +45,16 @@ public class BoardController{
 		map.put("keyField", keyField);
 		map.put("keyWord", keyWord);
 
-		int count=noticeDAO.getRowCount(map);
+		int count=boardDAO.getNewNum();
 		log.info(count);
 		PagingUtil page=new PagingUtil(keyField, keyWord, currentPage,count,10,3,"list.do");
 
 		map.put("start",page.getStartCount());
 		map.put("end", page.getEndCount());
 
-		List<NoticeDTO> list=null;
+		List<BoardDTO> list=null;
 		if(count > 0) {
-			list=noticeDAO.noticeList(map);
+			list=boardDAO.list();
 		}else {
 			list=Collections.emptyList();
 		}
@@ -56,10 +63,10 @@ public class BoardController{
 		model.addAttribute("list", list);
 		model.addAttribute("keyWord", keyWord);
 		model.addAttribute("pagingHtml",page.getPagingHtml());
-		return "/notice/list";
-	}*/
+		return "/board/list";
+	}
 
-	// By Jay_공지사항 작성하기 폼으로 이동_20210417
+	// 게시물작성 <작동>
 	@RequestMapping(value="Board/write.do", method = RequestMethod.GET)
 	public String boardWriteForm() {
 		log.info("BoardController의 boardWriteForm()호출됨");
