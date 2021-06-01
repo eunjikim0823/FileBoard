@@ -58,22 +58,19 @@
 
 
 <script type="text/javascript">
-    jQuery(document).ready(function() {
-      	App.init();
-    });
 
     function boardResgisterValidation(){
-    	var title = $("#notice_title").val();
-    	var content = $("#notice_content").val();
+    	var title = $("#title").val();
+    	var content = $("#content").val();
 
     	if(!title){
     		alert("글 제목은 필수로 입력하셔야 입니다.");
-    		$("#notice_title").focus();
+    		$("#title").focus();
     	}else if(!content){
     		alert("글 내용은 필수로 입력하셔야 합니다.");
-    		$("#notice_content").focus();
+    		$("#content").focus();
     	}else {
-    		noticeRegister();
+    		boardRegister();
     	}
     }
 

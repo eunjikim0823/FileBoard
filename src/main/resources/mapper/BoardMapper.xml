@@ -17,9 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
 
  <!-- 3.글쓰기 (content.BoardCommand) #{매개변수명(=멤버변수명)}-->
- <insert id="write" parameterType="Board">
+<!--  <insert id="write" parameterType="Board">
      insert into board(num,id,title,content,sysdate)
      values(#{num},#{id},#{title},#{content},sysdate)
+ </insert>
+ 회원가입 구현 전이라서 id는 뺌 -->
+ <insert id="write" parameterType="Board">
+     insert into board(num,title,content,sysdate)
+     values(#{num},#{title},#{content},sysdate)
  </insert>
 
  <!-- 4.글상세보기(조회수증가) -->

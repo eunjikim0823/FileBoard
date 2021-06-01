@@ -29,6 +29,8 @@ public class BoardController{
 		this.boardDAO = boardDAO;
 	}
 
+
+
 	@RequestMapping(value="Board/board.do", method = RequestMethod.GET)
 	public String noticeList(
 			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
@@ -66,17 +68,17 @@ public class BoardController{
 		return "/board/list";
 	}
 
-	// 게시물작성 <작동>
+	// 게시물폼 호출
 	@RequestMapping(value="Board/write.do", method = RequestMethod.GET)
 	public String boardWriteForm() {
 		log.info("BoardController의 boardWriteForm()호출됨");
 		return "Board/write";
 	}
 
-	// By Jay_공지사항 작성하기_20210416
+	// 게시물 작성
 	@RequestMapping(value="Board/write.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String noticeWrite(@ModelAttribute BoardDTO noticeDTO) {
+	public String write(@ModelAttribute BoardDTO boardDTO) {
 		log.info("BoardController의 boardWrite()호출됨");
 
 		boardDAO.write(boardDTO);

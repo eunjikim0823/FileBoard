@@ -51,9 +51,9 @@ public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDAO {
 	}
 
 	//수정하기
-	public void update(BoardDTO data) throws DataAccessException {
+	public void update(BoardDTO boardDTO) throws DataAccessException {
 		// TODO Auto-generated method stub
-		getSqlSession().update("update",data);//#{title},#{content}...
+		getSqlSession().update("update",boardDTO);//#{title},#{content}...
 	}
 
 	//삭제하기
