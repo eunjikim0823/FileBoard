@@ -30,11 +30,11 @@
 					<input type="submit" class="form-control" value="검색">
 				</div>
 
-				<c:if test="${!empty sessionScope.loginUser}">
+			<%-- 	<c:if test="${!empty sessionScope.loginUser}"> 로그인 기능 구현하면 적용--%>
 			    	<div class="form-group col-md-1 col-md-offset-1">
 			    		<input type="button" class="form-control" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/Board/write.do' ">
 					</div>
-				</c:if>
+				<%-- </c:if> --%>
 	    	</form>
 
 
