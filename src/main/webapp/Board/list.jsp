@@ -42,7 +42,7 @@
 				<table class="table table-hover" style="text-align: center;">
 					<thead >
 						<tr class="active">
-							<td width="10%">순 서</td>
+							<td width="10%">게시물번호</td>
 							<td width="53%">제 목</td>
 							<td width="10%">작성자</td>
 							<td width="17%">작성일</td>
@@ -61,8 +61,8 @@
 
 					<c:forEach var="list" items="${list}">
 						<tr>
-							<td width="10%">${list.find_num}</td>
-							<td width="53%" align="left"><a href="${pageContext.request.contextPath}/Board/details.do?find_number=${list.find_number}">${list.find_title}</a></td>
+							<td width="10%">${list.num}</td>
+							<td width="53%" align="left"><a href="${pageContext.request.contextPath}/Board/details.do?num=${list.num}">${list.title}</a></td>
 							<td width="10%">${list.id}</td>
 							<td width="17%">${list.sysdate}</td>
 							<td width="10%">${list.readcnt}</td>
