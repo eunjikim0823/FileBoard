@@ -58,7 +58,7 @@
 					<div class="col-md-pull">
                     <p style="text-align:center;" class="color-blue">아직 회원이 아니신가요?</p>
                     </div>
-                    <p><a href="${pageContext.request.contextPath}/user/register.do"><button class="btn-u btn-block btn-u-blue" type="button" >회원가입</button></a></p>
+                    <p><a href="${pageContext.request.contextPath}/Member/register.do"><button class="btn-u btn-block btn-u-blue" type="button" >회원가입</button></a></p>
                     <div class="row">
                     	<div class="col-md-12">
                         	<span class="pull-right">
@@ -100,7 +100,7 @@
 
     function signIn(){
     	$.ajax({
-    		url : "${pageContext.request.contextPath}/user/login.do",
+    		url : "${pageContext.request.contextPath}/Member/login.do",
     		type:'POST',
     		data : {
     			member_id : $("#member_id").val(),
@@ -116,7 +116,7 @@
     				return false;
 
     			} else if(data == "pwdFail") {
-    				alert("패스워드가 틀렸습니다. 비밀번호를 확이해주세요");
+    				alert("패스워드가 틀렸습니다. 비밀번호를 확인해주세요");
     				return false;
     			}
     		}
