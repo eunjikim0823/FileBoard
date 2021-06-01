@@ -6,7 +6,6 @@ public class BoardDTO { //BoardDTO,BoardVO
 	private int num;//게시물번호
 	private String id,title,content,sysdate;//작성자,글제목,글내용,작성일
 	private int readcnt;//조회수
-	private String pwd; //비밀번호
 
 	public int getNum() {
 		return num;
@@ -44,17 +43,11 @@ public class BoardDTO { //BoardDTO,BoardVO
 	public void setReadcnt(int readcnt) {
 		this.readcnt = readcnt;
 	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
 
 	@Override
 	public String toString() {
 		return "BoardDTO [num=" + num + ", id=" + id + ", title=" + title
 				+ ", content=" + content + ", sysdate=" + sysdate + ", readcnt="
-				+ readcnt + ", pwd=" + pwd + "]";
+				+ readcnt + " ]";
 	}
 }

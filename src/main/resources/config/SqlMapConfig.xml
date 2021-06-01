@@ -14,7 +14,7 @@
  	</typeAliases>
 
  	<mappers>
-		<mapper resource="mapper/CafeMapper.xml"/>
+		<mapper resource="mapper/BoardMapper.xml"/>
 
  	</mappers>
  </configuration>
