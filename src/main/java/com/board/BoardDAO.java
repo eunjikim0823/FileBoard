@@ -30,7 +30,7 @@ public interface BoardDAO{
 	public BoardDTO watch(String num) throws DataAccessException;
 
 	//4.글수정하기
-	public void update(BoardDTO data) throws DataAccessException;
+	public void update(BoardDTO boardDTO) throws DataAccessException;
 
 	//5.글삭제하기
 	public void delete(String num) throws DataAccessException;

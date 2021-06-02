@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Repository;
 
-//SqlSessionDaoSupport -> getSqlSession() 상속 ->SqlSession
+
 public class BoardDaoImpl extends SqlSessionDaoSupport implements BoardDAO {
 
 	//SqlSession sqlsession; ->DI(생성자 or Setter Method를 사용) ->소스코드 절약

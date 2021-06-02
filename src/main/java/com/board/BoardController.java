@@ -21,13 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BoardController{
 
 	private Log log = LogFactory.getLog(getClass());
-	private final BoardDAO boardDAO;
-	private BoardDTO boardDTO;
+
 
 	@Autowired
-	public BoardController(BoardDAO boardDAO) {
-		this.boardDAO = boardDAO;
-	}
+	BoardDAO boardDAO;
 
 
 
@@ -68,18 +65,22 @@ public class BoardController{
 		return "/board/list";
 	}
 
-	// 게시물폼 호출
+	// 게시물폼
 	@RequestMapping(value="Board/write.do", method = RequestMethod.GET)
 	public String boardWriteForm() {
 		log.info("BoardController의 boardWriteForm()호출됨");
 		return "Board/write";
 	}
 
-	// 게시물 작성
+	// 게시물 내용 작성
 	@RequestMapping(value="Board/write.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String write(@ModelAttribute BoardDTO boardDTO) {
-		log.info("BoardController의 boardWrite()호출됨");
+		log.info("BoardController의 write()호출됨");
+
+		int newNum=boardDAO.getNewNum()+1;
+		boardDTO.setNum(newNum);
+
 
 		boardDAO.write(boardDTO);
 		return "success";
